@@ -6,6 +6,8 @@ This repository contains the trauma-narrative processing framework developed for
 
 The narrative pipeline was created to complement structured clinical measures by extracting interpretable information from short, unstructured clinician descriptions of traumatic and adverse experiences. It characterizes the timing, type, relational context, and broader psychosocial context of reported adversity without altering or re-estimating the existing clinical clusters.
 
+<https://github.com/arasorietnom/NLP_semantic-trauma-ontology/tree/main/code>
+
 ## Objectives
 
 The pipeline is intended to:
