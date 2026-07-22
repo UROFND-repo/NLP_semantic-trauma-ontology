@@ -1,96 +1,209 @@
-# Trauma Narrative Semantic Pipeline
+# Trauma Narrative Semantic Ontology
 
-## Overview
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-ef9421.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-This repository contains the trauma-narrative processing framework developed for the **UROFND clustering study**, an exploratory investigation of clinical heterogeneity in functional neurological disorder (FND). The broader study used nonlinear dimensionality reduction and density-based clustering to identify regions of increased patient similarity within a continuous biopsychosocial manifold.
+This repository contains the rule-based trauma-narrative processing framework developed for the **UROFND clustering study**, an exploratory investigation of clinical heterogeneity in functional neurological disorder (FND). The framework was used post hoc to characterize short trauma-related narratives after the clinical profiles had already been identified. It does **not** perform dimensionality reduction, patient clustering, prediction, or diagnostic classification.
 
-The narrative pipeline was created to complement structured clinical measures by extracting interpretable information from short, unstructured clinician descriptions of traumatic and adverse experiences. It characterizes the timing, type, relational context, and broader psychosocial context of reported adversity without altering or re-estimating the existing clinical clusters.
+The reusable module converts brief, unstructured clinician descriptions into transparent semantic indicators describing documentation status, developmental timing, trauma or adversity type, relational context, family and social context, and derived trauma patterns. The public workflow contains no UROFND narratives, participant data, cluster assignments, prevalences, or study results.
 
-<https://github.com/arasorietnom/NLP_semantic-trauma-ontology/tree/main/code>
+## Repository contents
+
+| File | Purpose |
+|---|---|
+| [`trauma_narrative_ontology.py`](trauma_narrative_ontology.py) | Data-independent ontology implementation and public Python API |
+| [`TRAUMA_ONTOLOGY.md`](TRAUMA_ONTOLOGY.md) | Complete semantic hierarchy, definitions, and derivation rules |
+| [`trauma_ontology_sankey.html`](trauma_ontology_sankey.html) | Standalone interactive visualization of the ontology structure |
 
 ## Objectives
 
-The pipeline is intended to:
+The framework is intended to:
 
 - standardize heterogeneous clinician-recorded trauma narratives;
 - separate multiple events documented within one participant record;
-- represent each event using transparent, clinically interpretable semantic labels;
-- preserve valid co-occurrence between trauma type, developmental timing, and relationship context;
-- prevent semantic associations across unrelated events;
-- aggregate event-level information to participant-level indicators;
-- compare trauma-semantic profiles across existing clinical groups; and
+- assign transparent, clinically interpretable semantic labels;
+- retain valid co-occurrence between timing, trauma type, and relational context;
+- prevent information from being transferred across unrelated events;
+- aggregate event-level information into participant-level indicators; and
 - support reproducible secondary analyses of brief clinical narratives.
 
 ## Methodological approach
 
-The framework combines deterministic text processing with a clinically defined semantic ontology.
+The pipeline uses deterministic text processing and a predefined clinical ontology. It does not use Sentence-BERT or another embedding model to assign the published categorical indicators.
 
-1. Narratives are normalized for case, accents, punctuation, and common clinical abbreviations.
+1. Text is lowercased and normalized for diacritics, punctuation, whitespace, and predefined clinical abbreviations.
 2. Semicolons are treated as boundaries between distinct event descriptions.
-3. Each segment is processed as an independent semantic block.
-4. Rule-based patterns identify trauma type, developmental timing, relationship context, and family or social adversity.
-5. Within-segment combinations generate developmentally and relationally specific indicators.
-6. Segment-level indicators are aggregated to the participant level, which remains the statistical unit.
-7. Participant-level prevalences are summarized overall and across the pre-existing UROFND clusters.
+3. Each segment is analyzed independently as a semantic block.
+4. Lexical dictionaries and regular expressions identify documentation status, timing, adversity type, relational context, and family or social adversity.
+5. Boolean composition rules generate derived indicators only when their required components occur within the same segment.
+6. Segment-level indicators are aggregated to the participant level using OR logic for binary features and summation for true count variables.
+7. Cross-event participant profiles are recalculated after aggregation.
 
-The repository also supports the multilingual Sentence-BERT model:
-
-```text
-sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
-```
-
-Sentence-BERT (SBERT) can be used for multilingual sentence representation, semantic similarity, and selection of representative narrative segments. The current categorical trauma indicators are generated by the transparent rule-based ontology rather than inferred directly from SBERT embeddings. This distinction preserves interpretability and permits manual auditing of sensitive classifications.
+The participant remains the final statistical unit. Any group comparisons, regression models, or visualizations are downstream analyses and are not part of the reusable ontology engine.
 
 ## Processing hierarchy
 
 ```text
 Participant narrative
-└── Semicolon-delimited event segments
-    └── Segment-level semantic labels
-        ├── Timing
-        ├── Trauma type
-        ├── Relationship context
-        └── Within-segment combinations
-            └── Participant-level aggregation
-                ├── Presence of each semantic feature
-                ├── Number of adversity types
-                └── Cross-event composite profiles
+└── Text normalization
+    └── Semicolon-delimited event segments
+        └── Segment-level semantic labels
+            ├── Documentation status
+            ├── Developmental timing
+            ├── Trauma/adversity type
+            ├── Relationship context
+            └── Family/social context
+                └── Within-segment derivations
+                    └── Participant-level aggregation
+                        ├── Presence across any segment
+                        ├── Number of adversity types
+                        └── Cross-event composite profiles
 ```
 
-The complete ontology and derivation rules are documented in [`TRAUMA_ONTOLOGY.md`](TRAUMA_ONTOLOGY.md).
+Semantic labels are non-mutually exclusive. For example, one event may simultaneously encode childhood timing, physical abuse, emotional abuse, a parental reference, direct parental abuse, and childhood interpersonal trauma.
+
+## Documentation status
+
+Documentation status is handled separately from trauma content. The originating dataset used the following conventions:
+
+| Source value | Interpretation | Analytical treatment |
+|---|---|---|
+| `NR` or an equivalent explicit negative statement | Participant reported no trauma | Evaluable negative; trauma indicators coded absent |
+| `RAS`, `rien à signaler`, `pas de trauma`, or equivalent | No trauma reported | Evaluable negative; trauma indicators coded absent |
+| `NA`, `ND`, an empty field, or equivalent | Information unavailable | Missing documentation; excluded from semantic-feature denominators |
+| Substantive narrative | Evaluable documentation | Ontology extraction applied |
+
+These mappings are corpus-specific and must be adapted when source systems use different codes.
 
 ## Semantic domains
 
 The ontology covers:
 
-- documentation status;
-- developmental timing;
-- trauma and adversity type;
-- relationship context;
-- family and social context;
-- childhood- and adulthood-specific interpersonal trauma; and
-- participant-level profiles, including repeated, chronic, contextual, and complex trauma.
+- **developmental timing:** childhood (`<18` years), adulthood (`≥18` years), both periods, or unknown timing;
+- **trauma/adversity type:** sexual, physical, and emotional abuse; neglect; bullying or harassment; conjugal violence; workplace trauma; accident-related trauma; bereavement or loss; and war or collective violence;
+- **relationship context:** mother, father, sibling, extended family, partner, and peer or school references;
+- **family/social context:** family violence and instability, witnessed parental violence, parental illness or incapacity, financial adversity, institutional adversity, and neurodevelopment-related adversity;
+- **within-segment derivations:** childhood-specific abuse and neglect, childhood and adult interpersonal trauma, direct parental abuse, and family-associated sexual-abuse context; and
+- **participant-level composites:** number of adversity types, repeated or chronic trauma, exposure across childhood and adulthood, contextual family adversity, multiple bereavements, and a study-defined complex-trauma profile.
 
-Semantic labels are not mutually exclusive. A single event may simultaneously encode childhood timing, physical abuse, emotional abuse, a parental relationship, and childhood interpersonal trauma.
+Derived outputs are descriptive research variables rather than diagnoses or independently validated clinical classifications.
 
+## Example of multilabel extraction
+
+The segment:
+
+```text
+physical and emotional abuse by father during childhood
+```
+
+may be represented as:
+
+```text
+Childhood
+├── Physical abuse
+├── Emotional abuse
+├── Father mentioned
+├── Direct parental abuse
+├── Childhood physical abuse
+├── Childhood emotional abuse
+└── Childhood interpersonal trauma
+```
+
+If a participant instead reports:
+
+```text
+physical abuse during childhood; sexual assault by a partner at age 25
+```
+
+the two segments are processed independently. Childhood timing is attached only to the first event, whereas adulthood, sexual abuse, and partner context are attached only to the second.
+
+## Installation and basic use
+
+The ontology module requires Python 3.9 or later and has no third-party dependencies.
+
+```python
+from trauma_narrative_ontology import classify_narrative
+
+narrative = (
+    "maltraitance physique par le pere pendant l'enfance; "
+    "violence conjugale a 25 ans"
+)
+
+result = classify_narrative(narrative)
+
+print(result["normalized_text"])
+print(result["segments"])
+print(result["segment_features"])
+print(result["participant_features"])
+```
+
+The returned object contains:
+
+| Key | Content |
+|---|---|
+| `normalized_text` | Normalized full narrative |
+| `segments` | Semicolon-delimited event descriptions |
+| `segment_features` | Semantic indicators assigned independently to each event |
+| `participant_features` | Indicators aggregated across all events for the participant |
+
+## Public API
+
+| Object | Purpose |
+|---|---|
+| `normalize_text(text)` | Normalize a raw narrative |
+| `split_segments(text)` | Divide a narrative at semicolons |
+| `classify_segment(segment)` | Extract indicators from one event block |
+| `aggregate_segments(features)` | Aggregate segment-level mappings |
+| `classify_narrative(text)` | Run the complete workflow for one participant |
+| `extract_ages(text)` | Extract explicit ages expressed in years |
+| `feature_catalog()` | Return the ontology hierarchy as records |
+| `PATTERNS` | Public lexical and regular-expression dictionary |
+| `FEATURE_HIERARCHY` | Domain-to-feature organization |
+| `FEATURE_LABELS` | Human-readable feature labels |
+
+## Interactive ontology arbor
+
+[`trauma_ontology_sankey.html`](trauma_ontology_sankey.html) provides a standalone, interactive representation of the ontology hierarchy. It is generated entirely from the documented logical structure and contains no participant-level data or UROFND outcomes. The HTML can be opened locally or hosted using GitHub Pages.
+
+To regenerate it:
+
+```bash
+pip install plotly
+python generate_trauma_ontology_sankey.py
+```
+
+The generated HTML is self-contained and includes an interactive PNG-download control.
+
+## Interpretation and validation
+
+The ontology is deterministic and auditable, but rule-based extraction remains sensitive to wording, negation, ambiguity, spelling, and local documentation practices. Before reuse in another corpus:
+
+1. verify the meanings of documentation codes;
+2. adapt the lexical dictionaries to the target language and setting;
+3. manually annotate an independent validation sample;
+4. report precision, recall, and agreement for clinically important labels;
+5. inspect false-positive and false-negative classifications; and
+6. manually verify sensitive relational indicators before publication.
+
+The framework should not be used to infer unreported trauma, establish perpetrator identity, make diagnoses, or guide individual treatment without clinical review.
+
+## Data protection
+
+Only ontology code, documentation, and synthetic examples should be published. Raw narratives, participant identifiers, segment tables, and participant-level semantic outputs must not be committed to a public repository.
 
 ## Terms of use and attribution
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-ef9421.svg)](https://creativecommons.org/licenses/by/4.0/)
+The source code, ontology, documentation, and data-free visualization are made available for reuse, reproduction, and adaptation under the **Creative Commons Attribution 4.0 International licence (CC BY 4.0)**. Reusers may copy, redistribute, and adapt these materials for any lawful purpose, provided that appropriate credit is given, a link to the licence is supplied, and modifications are indicated.
 
+Copyright and attribution notices must be retained in redistributed or adapted versions. Scholarly publications, presentations, software, or derivative ontologies that use or substantially adapt this framework should cite both the repository release used and the associated UROFND publication once available.
 
-The source code, ontology, and accompanying documentation are made available for open research reuse, reproduction, and adaptation under the **Creative Commons Attribution 4.0 International licence (CC BY 4.0)**. Reusers may copy, redistribute, and adapt these materials for any lawful purpose, provided that appropriate credit is given, a link to the licence is supplied, and modifications are indicated.
-
-Use of the source code is permitted for reproducible research and methodological development. Copyright and attribution notices must be retained in redistributed or adapted versions. Scholarly publications, presentations, software, or derivative ontologies that use or substantially adapt this framework must cite the UROFND study and this repository.
-
-The open licence applies to the code and ontology materials only. It does not grant access to, or permission to reproduce, the underlying clinical narratives or participant-level data.
+The licence applies only to the publicly released code, ontology, documentation, and synthetic examples. It does not grant access to or permission to reproduce the underlying clinical narratives or participant-level data.
 
 CC BY 4.0 licence text: <https://creativecommons.org/licenses/by/4.0/>
 
 ## Citation
 
-Until the associated UROFND manuscript has a final bibliographic record, please cite the repository as:
+Until the associated UROFND manuscript has a final bibliographic record, please cite:
 
-> Monteiro, S. (2026). Narrative Semantic NLP Ontology for Trauma Reports (Version 1.0.0) [Computer software]. https://github.com/arasorietnom/NLP_semantic-trauma-ontology/
+> Monteiro, S. (2026). *Trauma Narrative Semantic Ontology* (Version 1.0.0) [Computer software]. <https://github.com/arasorietnom/NLP_semantic-trauma-ontology/>
 
-After publication, users should additionally cite the associated UROFND clustering study. Replace the provisional citation above with the final author list, article title, journal, year, and DOI.
+After publication, please additionally cite the final UROFND clustering article.
