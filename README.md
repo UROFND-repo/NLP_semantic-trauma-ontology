@@ -89,6 +89,6 @@ CC BY 4.0 licence text: <https://creativecommons.org/licenses/by/4.0/>
 
 Until the associated UROFND manuscript has a final bibliographic record, please cite the repository as:
 
-> Monteiro S, *Trauma Narrative Semantic Pipeline and Ontology*. Version 1.0, 2026. Repository URL and access date.
+> Monteiro, S. (2026). Narrative Semantic NLP Ontology for Trauma Reports (Version 1.0.0) [Computer software]. https://github.com/arasorietnom/NLP_semantic-trauma-ontology/
 
 After publication, users should additionally cite the associated UROFND clustering study. Replace the provisional citation above with the final author list, article title, journal, year, and DOI.
