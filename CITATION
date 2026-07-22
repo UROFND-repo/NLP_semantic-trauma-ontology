@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Trauma Narrative Semantic Ontology"
+type: software
+version: 1.0.0
+date-released: 2026-07-22
+url: "https://github.com/arasorietnom/NLP_semantic-trauma-ontology/"
+
+authors:
+  - family-names: "MONTEIRO"
+    given-names: "SARA"
+    orcid: "https://orcid.org/0000-0001-9145-0063"
+
+preferred-citation:
+  type: software
+  title: "Trauma Narrative Semantic Ontology"
+  version: 1.0.0
+  date-released: 2026-07-22
+  authors:
+    - family-names: "MONTEIRO"
+      given-names: "SARA"
+  repository-code: "https://github.com/arasorietnom/NLP_semantic-trauma-ontology/"
