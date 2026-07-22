@@ -4,13 +4,6 @@ The module normalizes a narrative, splits semicolon-delimited event blocks,
 assigns non-mutually-exclusive semantic labels to each block, and aggregates
 those labels to the participant level. It performs no clustering, modelling,
 statistical testing, plotting, file I/O, or project-specific data handling.
-
-Documentation convention used by the originating study:
-    NR  -> explicitly no trauma reported (evaluable negative)
-    NA/ND/empty -> information unavailable (missing)
-
-Relationship labels in sexual-abuse segments describe same-segment textual
-context only; they do not establish perpetrator identity.
 """
 
 from __future__ import annotations
@@ -20,7 +13,6 @@ import unicodedata
 from collections import OrderedDict
 from typing import Any, Iterable, Mapping
 
-__version__ = "1.0.0"
 PREFIX = "trauma_"
 
 
