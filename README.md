@@ -106,6 +106,9 @@ Users are responsible for ensuring compliance with applicable ethics approvals, 
 
 ## Terms of use and attribution
 
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-ef9421.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+
 The source code, ontology, and accompanying documentation are made available for open research reuse, reproduction, and adaptation under the **Creative Commons Attribution 4.0 International licence (CC BY 4.0)**. Reusers may copy, redistribute, and adapt these materials for any lawful purpose, provided that appropriate credit is given, a link to the licence is supplied, and modifications are indicated.
 
 Use of the source code is permitted for reproducible research and methodological development. Copyright and attribution notices must be retained in redistributed or adapted versions. Scholarly publications, presentations, software, or derivative ontologies that use or substantially adapt this framework must cite the UROFND study and this repository.
@@ -113,7 +116,6 @@ Use of the source code is permitted for reproducible research and methodological
 The open licence applies to the code and ontology materials only. It does not grant access to, or permission to reproduce, the underlying clinical narratives or participant-level data.
 
 CC BY 4.0 licence text: <https://creativecommons.org/licenses/by/4.0/>
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-ef9421.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Citation
 
