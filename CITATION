@@ -7,8 +7,8 @@ date-released: 2026-07-22
 url: "https://github.com/arasorietnom/NLP_semantic-trauma-ontology/"
 
 authors:
-  - family-names: "MONTEIRO"
-    given-names: "SARA"
+  - family-names: "Monteiro"
+    given-names: "Sara"
     orcid: "https://orcid.org/0000-0001-9145-0063"
 
 preferred-citation:
@@ -17,6 +17,6 @@ preferred-citation:
   version: 1.0.0
   date-released: 2026-07-22
   authors:
-    - family-names: "MONTEIRO"
-      given-names: "SARA"
+    - family-names: "Monteiro"
+      given-names: "Sara"
   repository-code: "https://github.com/arasorietnom/NLP_semantic-trauma-ontology/"
