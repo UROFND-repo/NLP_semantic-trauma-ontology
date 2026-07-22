@@ -71,38 +71,6 @@ The ontology covers:
 
 Semantic labels are not mutually exclusive. A single event may simultaneously encode childhood timing, physical abuse, emotional abuse, a parental relationship, and childhood interpersonal trauma.
 
-## Intended reuse
-
-The framework may be reused or adapted for research involving short clinical descriptions of trauma, adversity, or psychosocial context. Potential applications include:
-
-- external replication of the UROFND narrative findings;
-- adaptation to other FND or neurological cohorts;
-- harmonization of clinician-recorded trauma histories across sites;
-- development or evaluation of clinical-text ontologies;
-- comparison of structured questionnaires with narrative documentation;
-- preprocessing for manually validated NLP datasets; and
-- methodological teaching or reproducibility demonstrations.
-
-Because the vocabulary was developed for French-language clinician narratives in a specific FND cohort, external use requires local validation, review of terminology, and adaptation to the documentation practices and language of the target dataset.
-
-## Interpretation safeguards
-
-The extracted variables are descriptive semantic indicators, not diagnoses or independently validated trauma classifications. Relationship terms occurring within sexual-abuse segments indicate narrative context but do not, without manual review, confirm perpetrator identity or grammatical agency.
-
-Any application involving sensitive derived categories should include manual validation against the authorized source records. The ontology should not be used for automated clinical decision-making, forensic assessment, or individual-level risk determination without dedicated validation and appropriate governance.
-
-## Data protection
-
-This repository should contain only source code, documentation, and synthetic examples. Do not upload:
-
-- raw clinician narratives;
-- participant identifiers;
-- event-level segment tables;
-- participant-level semantic outputs;
-- model embeddings derived from identifiable text; or
-- any other protected clinical information.
-
-Users are responsible for ensuring compliance with applicable ethics approvals, consent conditions, institutional policies, and data-protection legislation.
 
 ## Terms of use and attribution
 
