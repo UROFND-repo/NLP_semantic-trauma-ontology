@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
-title: "Trauma Narrative Semantic Ontology"
+title: "Narrative Semantic NLP Ontology for Trauma Reports"
 type: software
 version: 1.0.0
 date-released: 2026-07-22
@@ -13,7 +13,7 @@ authors:
 
 preferred-citation:
   type: software
-  title: "Trauma Narrative Semantic Ontology"
+  title: "Narrative Semantic NLP Ontology for Trauma Reports"
   version: 1.0.0
   date-released: 2026-07-22
   authors:
