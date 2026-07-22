@@ -71,17 +71,6 @@ The ontology covers:
 
 Semantic labels are not mutually exclusive. A single event may simultaneously encode childhood timing, physical abuse, emotional abuse, a parental relationship, and childhood interpersonal trauma.
 
-## Repository components
-
-| File | Purpose |
-|---|---|
-| `fnd_trauma_semantic_pipeline_fixed.py` | Normalizes and segments narratives, extracts semantic indicators per segment, and aggregates them per participant |
-| `plot_trauma_semantic_profiles.py` | Calculates overall, cluster-specific, and broad-domain prevalence and examines childhood sexual-abuse relationship context |
-| `trauma_semantic_feature_wordcloud.py` | Visualizes semantic-feature prevalence and cluster enrichment among participants with evaluable documentation |
-| `TRAUMA_ONTOLOGY.md` | Documents the ontology hierarchy, derivation rules, denominators, and interpretation safeguards |
-
-Run the scripts in the order shown above within the same analysis session. The visualization scripts use the participant- and segment-level dataframes created by the primary semantic pipeline.
-
 ## Intended reuse
 
 The framework may be reused or adapted for research involving short clinical descriptions of trauma, adversity, or psychosocial context. Potential applications include:
@@ -124,15 +113,12 @@ Use of the source code is permitted for reproducible research and methodological
 The open licence applies to the code and ontology materials only. It does not grant access to, or permission to reproduce, the underlying clinical narratives or participant-level data.
 
 CC BY 4.0 licence text: <https://creativecommons.org/licenses/by/4.0/>
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-ef9421.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Citation
 
 Until the associated UROFND manuscript has a final bibliographic record, please cite the repository as:
 
-> Monteiro S, UROFND Study Group. *UROFND Trauma Narrative Semantic Pipeline and Ontology*. Version 1.0, 2026. Repository URL and access date.
+> Monteiro S, *Trauma Narrative Semantic Pipeline and Ontology*. Version 1.0, 2026. Repository URL and access date.
 
 After publication, users should additionally cite the associated UROFND clustering study. Replace the provisional citation above with the final author list, article title, journal, year, and DOI.
-
-## Disclaimer
-
-This software is provided for research purposes without warranty. The authors are not responsible for clinical, legal, or forensic decisions made using the software or its outputs.
