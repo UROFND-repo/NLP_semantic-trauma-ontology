@@ -1,4 +1,4 @@
-# UROFND Trauma Narrative Semantic Pipeline
+# Trauma Narrative Semantic Pipeline
 
 ## Overview
 
