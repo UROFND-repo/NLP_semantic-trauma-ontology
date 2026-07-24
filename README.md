@@ -10,9 +10,9 @@ The reusable module converts brief, unstructured clinician descriptions into tra
 
 | Resource | Purpose |
 |---|---|
-| [**Interactive ontology tree**](https://arasorietnom.github.io/NLP_semantic-trauma-ontology/) | Explore the complete ontology as an interactive hierarchical tree |
-| [`trauma_narrative_ontology.py`](code/trauma_narrative_ontology.py) | Data-independent ontology implementation and public Python API |
-| [`TRAUMA_ONTOLOGY.md`](TRAUMA_ONTOLOGY.md) | Complete semantic hierarchy, definitions, and derivation rules |
+| [**Interactive Ontology Tree**](https://arasorietnom.github.io/NLP_semantic-trauma-ontology/) | Explore the complete ontology as an interactive hierarchical tree |
+| [**Reproducible Python Code**](code/trauma_narrative_ontology.py) | Data-independent ontology implementation and public Python API |
+| [**Ontology Tree Structure**]([TRAUMA_ONTOLOGY.md](https://github.com/arasorietnom/NLP_semantic-trauma-ontology/blob/main/TRAUMA_ONTOLOGY.md?plain=1)) | Complete semantic hierarchy, definitions, and derivation rules |
 
 ## Objectives
 
