@@ -8,11 +8,10 @@ The reusable module converts brief, unstructured clinician descriptions into tra
 
 ## Repository contents
 
-| File | Purpose |
+| Link | Purpose |
 |---|---|
 | [`trauma_narrative_ontology.py`](trauma_narrative_ontology.py) | Data-independent ontology implementation and public Python API |
-| [`TRAUMA_ONTOLOGY.md`](TRAUMA_ONTOLOGY.md) | Complete semantic hierarchy, definitions, and derivation rules |
-| [`trauma_ontology_sankey.html`](trauma_ontology_sankey.html) | Standalone interactive visualization of the ontology structure |
+| [`TRAUMA_ONTOLOGY.md`](TRAUMA_ONTOLOGY.md) | Complete semantic hierarchy tree, definitions, and derivation rules |
 
 ## Objectives
 
@@ -68,7 +67,6 @@ Documentation status is handled separately from trauma content. The originating 
 | Source value | Interpretation | Analytical treatment |
 |---|---|---|
 | `NR` or an equivalent explicit negative statement | Participant reported no trauma | Evaluable negative; trauma indicators coded absent |
-| `RAS`, `rien à signaler`, `pas de trauma`, or equivalent | No trauma reported | Evaluable negative; trauma indicators coded absent |
 | `NA`, `ND`, an empty field, or equivalent | Information unavailable | Missing documentation; excluded from semantic-feature denominators |
 | Substantive narrative | Evaluable documentation | Ontology extraction applied |
 
@@ -111,67 +109,11 @@ Childhood
 If a participant instead reports:
 
 ```text
-physical abuse during childhood; sexual assault by a partner at age 25
+physical abuse during childhood; war exposure during childhood
 ```
 
 the two segments are processed independently. Childhood timing is attached only to the first event, whereas adulthood, sexual abuse, and partner context are attached only to the second.
 
-## Installation and basic use
-
-The ontology module requires Python 3.9 or later and has no third-party dependencies.
-
-```python
-from trauma_narrative_ontology import classify_narrative
-
-narrative = (
-    "maltraitance physique par le pere pendant l'enfance; "
-    "violence conjugale a 25 ans"
-)
-
-result = classify_narrative(narrative)
-
-print(result["normalized_text"])
-print(result["segments"])
-print(result["segment_features"])
-print(result["participant_features"])
-```
-
-The returned object contains:
-
-| Key | Content |
-|---|---|
-| `normalized_text` | Normalized full narrative |
-| `segments` | Semicolon-delimited event descriptions |
-| `segment_features` | Semantic indicators assigned independently to each event |
-| `participant_features` | Indicators aggregated across all events for the participant |
-
-## Public API
-
-| Object | Purpose |
-|---|---|
-| `normalize_text(text)` | Normalize a raw narrative |
-| `split_segments(text)` | Divide a narrative at semicolons |
-| `classify_segment(segment)` | Extract indicators from one event block |
-| `aggregate_segments(features)` | Aggregate segment-level mappings |
-| `classify_narrative(text)` | Run the complete workflow for one participant |
-| `extract_ages(text)` | Extract explicit ages expressed in years |
-| `feature_catalog()` | Return the ontology hierarchy as records |
-| `PATTERNS` | Public lexical and regular-expression dictionary |
-| `FEATURE_HIERARCHY` | Domain-to-feature organization |
-| `FEATURE_LABELS` | Human-readable feature labels |
-
-## Interactive ontology arbor
-
-[`trauma_ontology_sankey.html`](trauma_ontology_sankey.html) provides a standalone, interactive representation of the ontology hierarchy. It is generated entirely from the documented logical structure and contains no participant-level data or UROFND outcomes. The HTML can be opened locally or hosted using GitHub Pages.
-
-To regenerate it:
-
-```bash
-pip install plotly
-python generate_trauma_ontology_sankey.py
-```
-
-The generated HTML is self-contained and includes an interactive PNG-download control.
 
 ## Interpretation and validation
 
@@ -184,11 +126,6 @@ The ontology is deterministic and auditable, but rule-based extraction remains s
 5. inspect false-positive and false-negative classifications; and
 6. manually verify sensitive relational indicators before publication.
 
-The framework should not be used to infer unreported trauma, establish perpetrator identity, make diagnoses, or guide individual treatment without clinical review.
-
-## Data protection
-
-Only ontology code, documentation, and synthetic examples should be published. Raw narratives, participant identifiers, segment tables, and participant-level semantic outputs must not be committed to a public repository.
 
 ## Terms of use and attribution
 
@@ -206,4 +143,6 @@ Until the associated UROFND manuscript has a final bibliographic record, please 
 
 > Monteiro, S. (2026). *Trauma Narrative Semantic Ontology* (Version 1.0.0) [Computer software]. <https://github.com/arasorietnom/NLP_semantic-trauma-ontology/>
 
-After publication, please additionally cite the final UROFND clustering article.
+After publication, please additionally cite the final UROFND clustering article:
+
+> Monteiro S, Maillard A, Hentzen C, Louis E, Teng M, Adrien V, Garcin B. (2026). *Towards a Multidimensional Exploration of Functional Neurological Disorder*
