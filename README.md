@@ -6,12 +6,13 @@ This repository contains the rule-based trauma-narrative processing framework de
 
 The reusable module converts brief, unstructured clinician descriptions into transparent semantic indicators describing documentation status, developmental timing, trauma or adversity type, relational context, family and social context, and derived trauma patterns. The public workflow contains no UROFND narratives, participant data, cluster assignments, prevalences, or study results.
 
-## Repository contents
+## Explore the Ontology
 
-| Link | Purpose |
+| Resource | Purpose |
 |---|---|
-| [`trauma_narrative_ontology.py`](trauma_narrative_ontology.py) | Data-independent ontology implementation and public Python API |
-| [`TRAUMA_ONTOLOGY.md`](TRAUMA_ONTOLOGY.md) | Complete semantic hierarchy tree, definitions, and derivation rules |
+| [**Interactive ontology tree**](https://arasorietnom.github.io/NLP_semantic-trauma-ontology/) | Explore the complete ontology as an interactive hierarchical tree |
+| [`trauma_narrative_ontology.py`](code/trauma_narrative_ontology.py) | Data-independent ontology implementation and public Python API |
+| [`TRAUMA_ONTOLOGY.md`](TRAUMA_ONTOLOGY.md) | Complete semantic hierarchy, definitions, and derivation rules |
 
 ## Objectives
 
