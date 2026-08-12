@@ -1,6 +1,11 @@
 # Trauma Narrative Semantic Ontology
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-ef9421.svg)](https://creativecommons.org/licenses/by/4.0/)
+<p align="left">
+  <a href="https://creativecommons.org/licenses/by/4.0/">
+    <img src="https://licensebuttons.net/l/by/4.0/88x31.png"
+         alt="Creative Commons Attribution 4.0 International">
+  </a>
+</p>
 
 This repository contains the rule-based trauma-narrative processing framework developed for the **UROFND clustering study**, an exploratory investigation of clinical heterogeneity in functional neurological disorder (FND). The framework was used post hoc to characterize short trauma-related narratives after the clinical profiles had already been identified. It does **not** perform dimensionality reduction, patient clustering, prediction, or diagnostic classification.
 
