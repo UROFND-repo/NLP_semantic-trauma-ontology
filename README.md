@@ -150,6 +150,6 @@ Until the associated UROFND manuscript has a final bibliographic record, please 
 
 > Monteiro, S. (2026). *Trauma Narrative Semantic Ontology* (Version 1.0.0) [Computer software]. <https://github.com/arasorietnom/NLP_semantic-trauma-ontology/>
 
-After publication, please additionally cite the final UROFND clustering article:
+Please additionally cite the final UROFND clustering article:
 
-> Monteiro S, Maillard A, Hentzen C, Louis E, Teng M, Adrien V, Garcin B. (2026). *Towards a Multidimensional Exploration of Functional Neurological Disorder*
+> Monteiro, S., Maillard, A., Louis, E., Hentzen, C., Al Chare, I., Baltasis, S., Teng, M., Adrien, V., & Garcin, B. (2026). Towards a Multidimensional Exploration of Functional Neurological Disorder. Manuscript submitted to Neurology.
