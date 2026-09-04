@@ -152,4 +152,4 @@ Until the associated UROFND manuscript has a final bibliographic record, please 
 
 Please additionally cite the final UROFND clustering article:
 
-> Monteiro, S., Maillard, A., Louis, E., Hentzen, C., Al Chare, I., Baltasis, S., Teng, M., Adrien, V., & Garcin, B. (2026). Towards a Multidimensional Exploration of Functional Neurological Disorder. Manuscript submitted to Neurology.
+> Monteiro, S., Maillard, A., Louis, E., Hentzen, C., Al Chare, I., Baltasis, S., Adrien, V., & Garcin, B. (2026). Towards a Multidimensional Exploration of Functional Neurological Disorder. Manuscript in submission. 
