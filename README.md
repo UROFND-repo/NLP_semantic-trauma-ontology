@@ -15,7 +15,7 @@ The reusable module converts brief, unstructured clinician descriptions into tra
 
 | Resource | Purpose |
 |---|---|
-| [**Interactive Ontology Tree**](https://arasorietnom.github.io/NLP_semantic-trauma-ontology/) | Explore the complete ontology as an interactive hierarchical tree |
+| [**Interactive Ontology Tree**](https://monteiro-sara.github.io/NLP_semantic-trauma-ontology/) | Explore the complete ontology as an interactive hierarchical tree |
 | [**Ontology Tree Structure Markdown**](https://github.com/arasorietnom/NLP_semantic-trauma-ontology/blob/main/TRAUMA_ONTOLOGY.md?plain=1) | Complete semantic hierarchy, definitions, and derivation rules |
 | [**Reproducible Python Code**](code/trauma_narrative_ontology.py) | Data-independent ontology implementation and public Python API |
 
@@ -150,6 +150,6 @@ Until the associated UROFND manuscript has a final bibliographic record, please 
 
 > Monteiro, S. (2026). *Trauma Narrative Semantic Ontology* (Version 1.0.0) [Computer software]. <https://github.com/arasorietnom/NLP_semantic-trauma-ontology/>
 
-After publication, please additionally cite the final UROFND clustering article:
+Please additionally cite the final UROFND clustering article:
 
-> Monteiro S, Maillard A, Hentzen C, Louis E, Teng M, Adrien V, Garcin B. (2026). *Towards a Multidimensional Exploration of Functional Neurological Disorder*
+> Monteiro, S., Maillard, A., Louis, E., Hentzen, C., Al Chare, I., Baltasis, S., Adrien, V., & Garcin, B. (2026). Towards a Multidimensional Exploration of Functional Neurological Disorder. Manuscript in submission. 
