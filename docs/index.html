@@ -17,12 +17,28 @@
     header { padding:26px 30px 12px; border-bottom:1px solid var(--border); }
     h1 { margin:0 0 7px; font-size:28px; font-weight:600; }
     p { margin:0; color:var(--muted); line-height:1.45; }
+    
+    .site-tabs {
+      display:flex; align-items:center; gap:8px; padding:12px 30px;
+      border-bottom:1px solid #d9dee3; background:#fff;
+      position:relative; z-index:1000;
+      font-family:Arial,Helvetica,sans-serif;
+    }
+    .site-tabs a {
+      display:inline-flex; align-items:center; padding:8px 13px;
+      border:1px solid #d9dee3; border-radius:999px;
+      color:#59636d; text-decoration:none; font-size:13px; font-weight:600;
+      background:#fff; transition:background .15s ease,border-color .15s ease,color .15s ease;
+    }
+    .site-tabs a:hover { background:#f5f7f8; color:#26313a; border-color:#c6cdd3; }
+    .site-tabs a.active { background:#26313a; color:#fff; border-color:#26313a; }
+
     .legend { display:flex; flex-wrap:wrap; gap:9px 19px; padding:13px 30px; border-bottom:1px solid var(--border); font-size:13px; }
     .legend span { display:inline-flex; align-items:center; gap:7px; }
     .legend i { width:12px; height:12px; border-radius:2px; border:1px solid rgba(40,40,40,.25); }
     #ontology { width:100%; height:1180px; }
     .note { padding:0 30px 25px; color:var(--muted); font-size:12px; line-height:1.45; }
-    @media (max-width:800px) { #ontology { min-width:1450px; } .plot-wrap { overflow-x:auto; } }
+    @media (max-width:800px) { #ontology { min-width:1450px; } .plot-wrap { overflow-x:auto; } .site-tabs { padding-left:18px; padding-right:18px; } }
   </style>
 </head>
 <body>
@@ -30,6 +46,10 @@
     <h1>Trauma Narrative Semantic Ontology</h1>
     <p>Rule-based transformation of semicolon-delimited clinical narratives into segment-level labels, within-segment derivations, and participant-level composite profiles.</p>
   </header>
+  <nav class="site-tabs" aria-label="Interactive views">
+      <a class="active" href="index.html">Semantic Ontology</a>
+      <a class="" href="results.html">NLP Results</a>
+    </nav>
   <div class="legend" aria-label="Color legend">
     <span><i style="background:var(--processing)"></i>Narrative processing</span>
     <span><i style="background:var(--documentation)"></i>Documentation</span>
